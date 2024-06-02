@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
 
-// This is for to connect to the server
+// This is to connect to the MOngoDB server
 mongoose
-  .connect("mongodb+srv://miyuru06:zxcvbnm12345@cluster0.jxxynxi.mongodb.net/")
+  .connect("mongodb+srv://**************@cluster0.jxxynxi.mongodb.net/")
   .then(() => {
     console.log("Connected to MongoDB");
   })
