@@ -36,7 +36,7 @@ const index = () => {
         />
         <View>
           <Text style={{ fontSize: 16, fontWeight: "600", fontFamily: "monospace" }}>
-            Keep plans for 15 days
+            My Account
           </Text>
           <Text style={{ fontSize: 15, color: "#808080", marginTop: 4, fontFamily: "monospace" }}>
             Select Categories
@@ -91,43 +91,6 @@ const index = () => {
           </View>
         </View>
       </View>
-
-      <LineChart
-        data={{
-          labels: ["Pending Tasks", "Completed Tasks"],
-          datasets: [
-            {
-              data: [pendingTasks, completedTasks],
-            },
-          ],
-        }}
-        width={Dimensions.get("window").width - 20} // from react-native
-        height={220}
-        // yAxisLabel="$"
-        // yAxisSuffix="k"
-        yAxisInterval={2} // optional, defaults to 1
-        chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#fb8c00",
-          backgroundGradientTo: "#ffa726",
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          style: {
-            borderRadius: 16,
-          },
-          propsForDots: {
-            r: "6",
-            strokeWidth: "2",
-            stroke: "#ffa726",
-          },
-        }}
-        bezier
-        style={{
-          borderRadius: 16,
-        }}
-      />
-
     </View>
   );
 };
