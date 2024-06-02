@@ -113,51 +113,12 @@ const index = () => {
 
   return (
     <>
-      <View style={{ marginHorizontal: 10, marginVertical: 10, flexDirection: "row", alignItems: "center", gap: 12 }}>
-
+      <View style={{ marginHorizontal: 10, marginVertical: 10, flexDirection: "row", alignItems: "center", gap: 12 }}>   
+        {pendingTodos?.length > 0 && <Text style={{ fontFamily: "monospace" }}> Tasks To Do ! {today}</Text>}
         <Pressable
-          style={{
-            backgroundColor: "#000000",
-            paddingHorizontal: 10,
-            paddingVertical: 6,
-            borderRadius: 25,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text style={{ color: "#FFFFFF", textAlign: "center", fontFamily: "monospace" }}> All </Text>
-        </Pressable>
-
-        <Pressable
-          style={{
-            backgroundColor: "#000000",
-            paddingHorizontal: 10,
-            paddingVertical: 6,
-            borderRadius: 25,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text style={{ color: "#FFFFFF", textAlign: "center", fontFamily: "monospace" }}> Work </Text>
-        </Pressable>
-
-        <Pressable
-          style={{
-            backgroundColor: "#000000",
-            paddingHorizontal: 10,
-            paddingVertical: 6,
-            borderRadius: 25,
-            alignItems: "center",
-            justifyContent: "center",
-            marginRight: "auto",
-          }}
-        >
-          <Text style={{ color: "#FFFFFF", textAlign: "center", fontFamily: "monospace" }}> Personal </Text>
-
-        </Pressable>
-        
-        <Pressable onPress={ () => setModalVisible (!isModalVisible) }>
-          <Entypo name="circle-with-plus" size={35} color="#000000" style={{ marginTop: 5 }} />
+         style={{ marginLeft: "auto" }}
+         onPress={ () => setModalVisible (!isModalVisible) }>
+          <Entypo name="circle-with-plus" size={35} color="#000000" style={{ marginTop: 5}} />
         </Pressable>
       </View>
 
@@ -167,7 +128,7 @@ const index = () => {
           {todos?.length > 0 ? (
             <View style={{ padding: 10 }}>
 
-              {pendingTodos?.length > 0 && <Text style={{ marginBottom: 15, fontFamily: "monospace" }}> Tasks To Do ! {today}</Text>}
+              
 
               {pendingTodos?.map ( (item, index) => (
 
@@ -202,33 +163,7 @@ const index = () => {
                 </Pressable>               
               ))}
 
-              {completedTodos?.length > 0 && (
-
-                <View>
-                  
-                  <View style={{ flexDirection: "row", alignItems: "center", gap: 5, marginVertical: 10, marginTop: "20%" }}>
-                    <Text style={{ fontFamily: "monospace" }}> Completed Task </Text>
-                    <MaterialIcons name="arrow-drop-down" size={24} color="black" />
-                  </View>
-
-                  {completedTodos?.map ( (item, index) => (
-
-                  <Pressable 
-                    key={index} 
-                    style={{ backgroundColor: "#E0E0E0", padding:10, borderRadius: 15, marginVertical: 5 }}
-                  >
-                    <View style={{ flexDirection: "row", alignItems: "center", gap: 10}}>
-                    <AntDesign name="checkcircle" size={18} color="#808080" />
-                      <Text style={{ flex: 1, textDecorationLine: "line-through", color: "#808080", fontFamily: "monospace" }}> 
-                        {item.title} 
-                      </Text>
-                      <Feather name="flag" size={20} color="#808080" />
-                    </View>
-                  </Pressable>               
-                  ))}
-
-                </View>
-              )}
+              
 
             </View>
 
@@ -290,79 +225,6 @@ const index = () => {
             />
 
             <Ionicons onPress={addTodo} name="send" size={30} color="#000000" />
-
-          </View>
-
-          <Text style={{ fontFamily: "monospace", fontWeight: "bold", fontSize: 18 }}> Choose Category... </Text>
-
-          <View style={{ flexDirection: "row", alignItems: "center", gap:10, marginVertical: 10 }}>
-            <Pressable 
-              onPress={ () => setCategory("Work")}
-              style={{
-                borderColor: "#BDC3C7", 
-                paddingHorizontal: 10, 
-                paddingVertical:5, 
-                borderWidth:2, 
-                borderRadius:25,
-              }}
-            >
-              <Text style={{ fontFamily: "monospace", fontWeight: "bold" }}> Work </Text>
-
-            </Pressable>
-
-            <Pressable 
-              onPress={ () => setCategory("Personal")}
-              style={{
-                borderColor: "#BDC3C7", 
-                paddingHorizontal: 10, 
-                paddingVertical:5, 
-                borderWidth:2, 
-                borderRadius:25,
-              }}
-            >
-              <Text style={{ fontFamily: "monospace", fontWeight: "bold" }}> Personal </Text>
-
-            </Pressable>
-
-            <Pressable
-              onPress={ () => setCategory("Wish List")} 
-              style={{
-                borderColor: "#BDC3C7", 
-                paddingHorizontal: 10, 
-                paddingVertical:5, 
-                borderWidth:2, 
-                borderRadius:25,
-              }}
-            >
-              <Text 
-                style={{ fontFamily: "monospace", fontWeight: "bold" }}> Wish List </Text>
-
-            </Pressable>
-
-          </View>
-
-          <Text style={{ fontFamily: "monospace", fontWeight: "bold", fontSize: 18}}> Some Suggestions... </Text>
-
-          <View style={{flexDirection: "row", alignItems: "center", gap: 10, flexWrap: "wrap", marginVertical: 10 }}>
-
-            {suggestions?.map ((item, index) => (
-
-              <Pressable 
-                onPress={ () => setTodo(item?.todo)}
-                style={{ 
-                  borderColor: "#BDC3C7", 
-                  borderWidth: 2, 
-                  paddingHorizontal: 10, 
-                  paddingVertical: 5, 
-                  borderRadius: 25
-                }} 
-                key={index}
-              >
-                <Text style={{ fontFamily: "monospace", fontWeight: "bold", textAlign: "center" }}> {item?.todo} </Text>
-
-              </Pressable>
-
-            ))}
 
           </View>
 
