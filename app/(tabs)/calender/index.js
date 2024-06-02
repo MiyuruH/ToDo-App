@@ -45,7 +45,7 @@ const index = () => {
           },
         }}
         style={{
-          height: 300,
+          height: 380,
           width: "100%",
           backgroundColor: "#FFFFFF",
         }}
